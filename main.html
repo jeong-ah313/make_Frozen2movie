@@ -1,0 +1,178 @@
+<!-DOCTYPE html->
+<html>
+<head>
+	<title> 겨울왕국2 </title>
+	<!--로그인(아이디&비밀번호)
+		=아무거나 입력만 하면 로그인 되도록 구현-->
+	<script>
+
+        function fnLogin(){
+            var objLogin = document.getElementById("loginId");
+            var objPasswd = document.getElementById("passwd");
+            
+            if(objLogin.value == ""){
+                alert("아이디를 입력하세요!");
+                objLogin.focus();
+            }
+            else if(objPasswd.value == ""){
+                alert("비밀번호를 입력하세요!");
+                objPasswd.focus();
+            }
+			
+			document.getElementById("areaLogin").style.display = "none";
+            var objLoginInfo = document.getElementById("loginInfo");
+            objLoginInfo.innerHTML = objLogin.value + "님 로그인 되었습니다!";
+            document.getElementById("areaLogout").style.display = "";
+        }    
+
+        function fnLogout(){
+            document.getElementById("loginId").value = "";
+            document.getElementById("passwd").value = "";
+            
+            document.getElementById("areaLogin").style.display = "";
+            document.getElementById("areaLogout").style.display = "none";
+        } 
+        
+        
+
+        function onKeyupPasswd(ev){
+            var evKeyup = ev;            
+            if(evKeyup.keyCode == 13){ document.getElementById("passwd").blur()
+                fnLogin();    
+            }    
+        
+        }    
+	</script>			
+	<!--폰트설정-->
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Nanum+Pen+Script|Stylish&display=swap&subset=korean');
+	@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap&subset=korean');
+	@font-face { font-family: 'Nanum Pen Script'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+			
+
+	#areaLogin {
+			width : 600px;
+			height : 50px;
+			display : inline;
+			float:right;
+			}
+			
+	
+	div.background {
+            background-image: url(winter2.jpg); 
+			background-repeat : repeat;
+			border: 1px solid pink;
+			 }
+	div.box {
+            margin: 30px;  background-color: #ffffff;
+            border: 2px solid pink;  opacity: 0.6; 
+			border-radius: 50px;
+		font-family: 'Nanum Pen Script'
+			
+			}
+    div.box h2 {
+            margin: 5%;
+			border-radius: 50px;
+            font-weight: bold;
+            color: #000000;
+            text-align: center; 
+			}
+	h2 a {
+			text-decoration : none;
+			font-size : 50px;
+			color : black;
+		}
+
+	
+		#last {
+		opacity:0.4;
+		text-align:center;
+		}
+	
+	.content {
+	overflow:hidden;
+	}
+
+	.menu 
+	{
+	float:left; 
+	width:200px; 
+	height:800px;
+	list-style:none;
+	background-color:#ff8080;
+	margin : 0px;
+	}
+	
+	.menu li 
+	{
+	margin:10;
+	width:150px; 
+	height:50px; 
+	font-family: 'Nanum Pen Script';
+	}
+	
+	.menu li a 
+	{
+	display:block; 
+	height:100%;
+	background: #ff8080; 
+	text-align:center; 
+	font-size: 20px; 
+	text-decoration:none;
+	padding-left:-20px; 
+	}
+	
+	.menu li a:hover{ 
+	background: #ff0000; 
+	color: white;
+	}
+		
+	.main { 
+	float:left;
+	width:1000px;
+	height:800px; 
+	}
+</style>
+</head>
+<body>
+	<div>
+		<!-- 맨 위 오디오 부분 -->
+		<span>
+			<audio src="Into The Unknown.mp3" autoplay controls> 
+			</audio>
+		</span>
+		<!-- 로그인 창 -->
+		<table id=areaLogin>
+			<tr><td>아이디</td><td><input type=text id=loginId value="" placeholder="아이디를 입력하세요"></td>
+			<!-- 아이디와 비밀번호를 다 치고 로그인 버튼을 클릭하는 대신에 엔터키를 눌렀을 경우 -->
+			<td>비밀번호</td><td><input type=password id=passwd value="" onkeyup=onKeyupPasswd(event) placeholder="비밀번호를 입력하세요"></td>
+			<td colspan=2><input type=button value="로그인" onclick=fnLogin()></td></tr>
+		</table>
+		<!-- 로그인 성공했을때 화면 -->
+		<table id=areaLogout style="display:none">
+			<tr>
+            <td><div id=loginInfo></div></td>
+			<td><input type=button value="로그 아웃" onclick=fnLogout()></td></tr>
+		</table>
+	</div>
+<!-- 페이지 제목 나타내는 부분 -->
+	<div class="background">
+		<div class="box">
+			<h2> <a href="" target="_self" >겨울왕국2 <br> Evenet Homepage! </a></h2>
+		</div>
+	</div> 
+<!--왼쪽 메뉴 부분 -->
+	<div class="content">
+		<ul class="menu">
+			<li><a href="명장면.html" target="if_b"> 명장면</a></li> 
+			<li><a href="board.html" target="if_b"  >Board</a></li>
+			<li><a href="Event.html" target="if_b">Event</a></li>
+		</ul>
+  <!--메뉴 선택시 보여줄 아이프레임 부분 -->
+		<iframe class="main" src="basic.html" name="if_b" frameborder="0" ></iframe>
+	</div>
+<!--페이지 하단 부분-->
+	<hr/>
+	<p id="last"> 페이지에 대해 추가사항이 있으시면 연락주세요 ajs8809@naver.com </p>
+
+</body>

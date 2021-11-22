@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<!--배경색&초기화-->
+	<script>
+		function func1(c){
+			document.getElementById("bd").style.backgroundColor = c ;
+		}
+
+		function func2(c1,c2){
+			document.getElementById("bd").style.backgroundColor=c1;
+			document.getElementById("bd").style.fontSize=c2;
+			}
+	</script>
+<!--폰트-->
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Nanum+Pen+Script&display=swap&subset=korean');
+	*{
+		font-family: 'Nanum Brush Script', cursive;	
+	}
+</style>	
+</head>
+<body id="bd">
+	<h3> 겨울왕국2 소개 및 이벤트 홈페이지 입니다!</H3>
+	<p>원하시는 메뉴를 선택하세요</p>
+		<p>메뉴 설명</p>
+		<div id="ball"></div>
+		<ul>
+			<li> 명장면 : 겨울왕국의 최고의 명장면 10분입니다. </li>
+			<li> Board : '방명록'을 작성할 수 있는 공간입니다.</li>
+			<li> Event : 여러분들께 선물을 주기 위해 뽑기 게임을 준비했습니다! 다들 참여해보세요! </li> 
+			
+		</ul>	
+		<br>
+	<p>무엇을 볼지 결정을 못하셨다면 배경을 변경하면서 골라보실래요? 버튼을 눌러보세요!</p>
+		<span>
+			<input type="button" value="배경변경" id="btn1" onclick="func1('yellow')">배경변경
+			<input type="button" value="초기화" id="btn2" onclick="func2('white')">초기화
+		</span>
+</body>
+</html>
+
